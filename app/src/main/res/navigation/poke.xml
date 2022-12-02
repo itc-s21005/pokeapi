@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/poke"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="jp.ac.it_college.std.s21005.pokeapi.TitleFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_generationFragment"
+            app:destination="@id/GenerationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GenerationFragment"
+        android:name="jp.ac.it_college.std.s21005.pokeapi.generationFragment"
+        android:label="fragment_generation"
+        tools:layout="@layout/fragment_generation" >
+        <action
+            android:id="@+id/action_generationFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="jp.ac.it_college.std.s21005.pokeapi.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" >
+        <argument
+            android:name="pokemonid"
+            app:argType="integer[]" />
+        <argument
+            android:name="qCount"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/action_questionFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_questionFragment_self2"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="jp.ac.it_college.std.s21005.pokeapi.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+</navigation>
